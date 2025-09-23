@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio</title>
+  <meta name="description" content="Portfolio of Your Name — Fullstack Developer, Designer, Problem solver" />
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <div class="container" id="page">
+    <header>
+      <div class="brand">
+        <div class="avatar">POT</div>
+        <div>
+          <div style="font-weight:1000">Portfolio</div>
+          <div class="muted" style="font-size:13px">Full‑Stack Developer • Open-source</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="toggle" id="themeToggle" title="Toggle theme">🌗</div>
+        <a class="btn btn-primary" href="#contact">Hire Me</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <div class="card">
+          <h1>Hey, I'm UDAYA 👍</h1>
+          <p class="lead">I build web apps and delightful user experiences. I love JavaScript, Node.js, React and clean architecture. I also write about engineering and open source.</p>
+
+          <div class="skills">
+            <span class="chip">React</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">figma</span>
+            <span class="chip">firebase</span>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:12px;align-items:center">
+            <a class="btn btn-primary" href="#projects">See projects</a>
+            <a class="btn btn-ghost resume" href="resume.pdf" download>Download Resume ⤓</a>
+          </div>
+
+          <div class="socials">
+            <a href="https://github.com/udhayaesther0212" class="muted" >Github</a>
+            <a href="https://www.instagram.com/uk_lovely_2006/" class="muted">instagram</a>
+          </div>
+        </div>
+
+        <section id="projects">
+          <h2 style="margin-top:18px ,">Projects</h2>
+          <div class="projects">
+            <article class="project card">
+              <h3>Project One</h3>
+              <p class="muted">React • Node • PostgreSQL</p>
+              <p class="muted" style="margin-top:8px">Short description: what it does and why it's useful. Add a live link and repo link when available.</p>
+            </article>
+
+            <article class="project card">
+              <h3>Project Two</h3>
+              <p class="muted">Next.js • Vercel</p>
+              <p class="muted" style="margin-top:8px">Short description and impact. Include tech, timeframe, role and link.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <aside>
+        <div class="card">
+          <h3>Contact</h3>
+          <p class="muted">Available for freelance | remote · Open to new opportunities</p>
+
+          <form id="contactForm" style="margin-top:12px">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <input id="name" placeholder="Your name" required style="padding:10px;border-radius:9px;border:2px solid #070706;background:rgb(231, 225, 225);color:var(--text)" />
+              <input id="email" placeholder="Your email" type="email" required style="padding:10px;border-radius:8px;border:1px solid #050505;background:rgb(231, 225, 225);color:var(--text)" />
+              <textarea id="message" placeholder="Message" rows="4" required style="padding:10px;border-radius:8px;border:1px solid #0e0f10;background:rgb(231, 225, 225);color:var(--text)"></textarea>
+              <button type="submit" class="btn btn-primary" style="color:black;">Send</button>
+            </div>
+          </form>
+
+          <div style="margin-top:12px">
+            <strong >Email</strong>
+            <div class="muted">udhayaesther0212@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Quick facts</h3>
+          <p class="muted">Location: MADURAI, INDIA</p>
+          <p class="muted">Availability: Open to work</p>
+        </div>
+      </aside>
+    </section>
+
+    <section id="skills" style="margin-top:18px">
+      <h2>Skills & Tools</h2>
+      <div class="card" style="margin-top:12px">
+        <ul>
+          <li>Languages: JavaScript, TypeScript, Python</li>
+          <li>Frameworks: React, Next.js, Express</li>
+          <li>Databases: PostgreSQL, MongoDB</li>
+          <li>Devops: Docker, GitHub Actions</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px">
+      <h2>Contact</h2>
+      <div class="card" style="margin-top:12px">
+        <p class="muted">Prefer email? <a href="mailto:udhayaesther0212@gmail.com">udhayaesther0212@gmail.com</a></p>
+        <p class="muted">Or use the form above.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="muted">© Your Name — Built with ❤️ • Last updated: 2025-09-22</div>
+    </footer>
+  </div>
+
+  <script>
+    // theme toggle
+    const toggle = document.getElementById('themeToggle');
+    const page = document.getElementById('page');
+    const saved = localStorage.getItem('theme');
+    if(saved === 'dark'){ document.documentElement.setAttribute('data-theme','dark') }
+    toggle.addEventListener('click', ()=>{
+      const cur = document.documentElement.getAttribute('data-theme');
+      if(cur === 'dark'){ document.documentElement.removeAttribute('data-theme'); localStorage.removeItem('theme') }
+      else{ document.documentElement.setAttribute('data-theme','dark'); localStorage.setItem('theme','dark') }
+    })
+
+    // simple form handler (client-side only)
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name||!email||!message){ alert('Please fill all fields'); return }
+      // open mail client as fallback
+      const subject = encodeURIComponent('Portfolio contact from ' + name);
+      const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+      window.location.href = `mailto:udhayaesther0212@gmail?subject=${subject}&body=${body}`;
+    })
+  </script>
+</body>
+</html>
